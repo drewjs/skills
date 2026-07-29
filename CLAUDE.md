@@ -3,20 +3,22 @@
 ## Vocabulary
 
 - **Skill**: a `SKILL.md` directory invoked by name or by the model.
-- **Bucket**: a top-level grouping under `skills/` — `engineering/` or `experimental/`.
-- **Promoted**: lives in `skills/engineering/`, listed in both manifests + `README.md`, ships to installers.
+- **Bucket**: a top-level grouping under `skills/` — `engineering/`, `misc/`, or `experimental/`.
+- **Promoted**: lives in a promoted bucket (`engineering/` for coding-related, `misc/` for everything else), listed in both manifests + `README.md`, ships to installers.
 - **Experimental**: lives in `skills/experimental/`, never listed, never ships.
+- **Repo-local skill**: lives in `.agents/skills/`, surfaced via the `.claude/skills` symlink, loads only when working in this repo, never ships.
 
 ## Layout
 
-`skills/<bucket>/<skill-name>/SKILL.md`. Buckets: `engineering/` (promoted), `experimental/` (not promoted).
+`skills/<bucket>/<skill-name>/SKILL.md`. Buckets: `engineering/` (promoted, coding), `misc/` (promoted, other), `experimental/` (not promoted).
 
 ## Invariants
 
-- Every `skills/engineering/*` skill MUST appear in `.claude-plugin/plugin.json` `skills`.
+- Every promoted-bucket skill MUST appear in `.claude-plugin/plugin.json` `skills`.
 - Same skill MUST appear in the marketplace plugin entry `skills` — identical array to `plugin.json`.
 - Same skill MUST appear in `README.md`.
 - Nothing from `experimental/` may appear in either manifest or the README.
+- `plugin.json`'s `skills` array must never be empty — it's the marketplace root's complete shipped-skill guarantee.
 
 ## Versioning
 

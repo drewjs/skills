@@ -9,7 +9,7 @@
       "description": "Andrew Galvan's personal library of Claude Code skills.",
       "category": "engineering",
       "keywords": ["claude-code", "agent-skills", "skills", "engineering", "productivity"],
-      "skills": ["./skills/engineering/new-skill"]
+      "skills": ["./skills/misc/hello"]
     }
   ]
 }

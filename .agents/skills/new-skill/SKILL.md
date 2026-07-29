@@ -9,10 +9,11 @@ disable-model-invocation: true
 1. Locate Matt Pocock's `writing-great-skills` reference and read it first. Apply its principles throughout. Find it with:
 
    ```
-   for p in ~/.claude/skills/writing-great-skills/SKILL.md ~/.agents/skills/writing-great-skills/SKILL.md; do [ -f "$p" ] && echo "$p"; done; find ~/.claude/plugins -path '*/skills/*/writing-great-skills/SKILL.md' 2>/dev/null
+   for p in ~/.claude/skills/writing-great-skills/SKILL.md ~/.agents/skills/writing-great-skills/SKILL.md; do [ -f "$p" ] && echo "$p"; done; /usr/bin/find "$HOME/.claude/plugins" -path '*/skills/*/writing-great-skills/SKILL.md' -print 2>/dev/null
    ```
 
-   Read the first match. Also read its sibling `GLOSSARY.md` if present.
+   Read the first match — a line starting with `/` and ending in `SKILL.md`
+   (`find` is called by absolute path because a shell function may shadow it). Also read its sibling `GLOSSARY.md` if present.
    If nothing is found: tell the user out loud, then fall back to
    `## Conventions` below and continue — do not stop.
 
@@ -41,9 +42,11 @@ disable-model-invocation: true
 7. Finish by printing exactly two things:
    - How to test it: run `scripts/link-skills.sh`, then invoke the skill by
      name in a new session.
-   - The promote checklist: `git mv` into `skills/engineering/`, add the path
-     to BOTH manifests' `skills` arrays, add a line to `README.md` and
-     `skills/engineering/README.md`, re-run `scripts/check-skills.sh`.
+   - The promote checklist: `git mv` into a promoted bucket —
+     `skills/engineering/` (coding-related) or `skills/misc/` (everything
+     else) — add the path to BOTH manifests' `skills` arrays, add a line to
+     `README.md` and the bucket's `README.md`, re-run
+     `scripts/check-skills.sh`.
 
 ## Conventions
 
