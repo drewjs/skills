@@ -1,6 +1,6 @@
 # drewjs/skills
 
-Andrew Galvan's personal library of Claude Code skills.
+A library of Claude Code skills, shipped as a plugin.
 
 ## Install
 
@@ -41,11 +41,6 @@ Skills live under `skills/<bucket>/<skill-name>/SKILL.md`. Three buckets:
   Claude/Agents skill directories for testing.
 - `scripts/check-skills.sh` — validate manifests, buckets, and READMEs stay
   consistent.
-
-## Credits
-
-This repo's structure is modeled on
-[mattpocock/skills](https://github.com/mattpocock/skills) (MIT).
 
 ## License
 
