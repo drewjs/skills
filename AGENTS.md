@@ -22,7 +22,13 @@
 
 ## Versioning
 
-`.claude-plugin/plugin.json`'s `version` is the single source of truth for the release version.
+`.claude-plugin/plugin.json`'s `version` is the single source of truth for the release version. Codex reads this same file — there is no separate Codex manifest to keep in sync.
+
+`<major>.<minor>.<patch>`: major stays `0` for now; bump minor for a skill added or removed, or another meaningful change to skill content; bump patch for everything else (docs, supporting a new agent/harness, tooling).
+
+## Install surfaces
+
+Claude Code and Codex both install directly from `.claude-plugin/plugin.json` + `marketplace.json` — confirmed live: `codex plugin marketplace add`/`plugin add` resolve this repo's existing Claude manifest with no Codex-specific file. Everyone else installs via `npx skills add`, which scans the whole repo for `SKILL.md` with no bucket awareness — see `INSTALL.md` for the resulting caveat (it will also list `.agents/skills/*` repo-local tooling, which isn't meant for external install). Full instructions: `INSTALL.md`.
 
 ## Workflow
 

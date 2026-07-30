@@ -1,11 +1,11 @@
 {
   "name": "drewjs-skills",
-  "version": "0.2.0",
-  "description": "Andrew Galvan's personal library of Claude Code skills.",
+  "version": "0.1.1",
+  "description": "A library of Claude Code skills.",
   "author": { "name": "Andrew Galvan", "url": "https://github.com/drewjs" },
   "homepage": "https://github.com/drewjs/skills",
   "repository": "https://github.com/drewjs/skills",
   "license": "MIT",
-  "keywords": ["claude-code", "agent-skills", "skills", "engineering", "productivity"],
+  "keywords": ["claude-code", "codex", "agent-skills", "skills", "engineering", "productivity"],
   "skills": ["./skills/misc/hello"]
 }

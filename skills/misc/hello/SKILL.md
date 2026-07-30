@@ -27,7 +27,11 @@ disable-model-invocation: true
 3. Compare versions: if this repo's working copy is available locally, read
    `.claude-plugin/plugin.json` on `main` there and state whether the running
    plugin's `version` matches it. If the repo isn't available, say the
-   comparison was skipped — don't guess.
+   comparison was skipped — don't guess. Note: the version scheme was reset
+   on 2026-07-30 (semver now tracks skill changes, not docs/tooling) — a
+   running version that looks *higher* than `main`'s (e.g. `0.2.0` installed
+   vs a lower `main`) means the install predates the reset, not a broken or
+   downgraded install. Report it as such rather than as a mismatch.
 
 4. Print: this skill is a temporary install canary; delete it once real
    skills ship.

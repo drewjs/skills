@@ -33,3 +33,22 @@ not a decision to split now.
   keeps `skills/experimental/*` from shipping. `scripts/check-skills.sh` must
   keep guarding that the `skills` arrays in both manifests stay identical and
   never point under `skills/experimental/`.
+
+## Update, 2026-07-30: multi-tool install, still one manifest
+
+Extended install support to Codex and to any Agent-Skills-compatible tool via
+`npx skills`, without adding a second plugin manifest. Verified live (`codex
+plugin marketplace add ./` against this repo with no `.codex-plugin/`
+present): Codex's plugin CLI reads `.claude-plugin/plugin.json` and
+`marketplace.json` directly and installs from them successfully. The repo
+root remains the single manifest and the single source of truth for
+`version`; "single plugin" now means "one manifest, multiple installers,"
+not "one specific tool."
+
+`npx skills` has no bucket concept — it scans the whole repo for any
+`SKILL.md`, so it will also list `.agents/skills/*` repo-local dev tooling
+(e.g. `new-skill`) alongside promoted skills. Unlike the `experimental/`
+leak the explicit `skills` array prevents for Claude/Codex, this can't be
+fixed in a manifest `npx skills` doesn't read. Accepted and documented
+instead of restructuring the repo: `INSTALL.md` tells `npx skills` users to
+install by explicit `--skill <name>`, not a bare `add`.

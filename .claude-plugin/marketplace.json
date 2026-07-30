@@ -1,14 +1,14 @@
 {
   "name": "drewjs",
   "owner": { "name": "Andrew Galvan", "url": "https://github.com/drewjs" },
-  "description": "Andrew Galvan's personal marketplace of Claude Code skills.",
+  "description": "A marketplace of Claude Code skills.",
   "plugins": [
     {
       "name": "drewjs-skills",
       "source": "./",
-      "description": "Andrew Galvan's personal library of Claude Code skills.",
+      "description": "A library of Claude Code skills.",
       "category": "engineering",
-      "keywords": ["claude-code", "agent-skills", "skills", "engineering", "productivity"],
+      "keywords": ["claude-code", "codex", "agent-skills", "skills", "engineering", "productivity"],
       "skills": ["./skills/misc/hello"]
     }
   ]
